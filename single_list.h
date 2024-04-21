@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cassert>
 #include <initializer_list>
+#include <forward_list>
 
 /*
     Метод push_back() - добавляет элемент в конец списка. Хранится указатель m_last на последний элемент для быстрой вставки.
@@ -145,7 +146,6 @@ class My_list
             m_last->m_next = current_element;
             m_last = current_element;
         }
-
         ++m_size;
     }
 
@@ -154,6 +154,7 @@ class My_list
         if(isEmpty())
         {
             m_first = new Element(std::move(elm));
+            m_last = m_first;
         }
         else
         {
